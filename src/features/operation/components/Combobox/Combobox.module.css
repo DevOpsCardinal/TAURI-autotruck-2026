@@ -1,0 +1,144 @@
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.fieldLabel {
+  font: var(--op-label-weight) var(--op-label-font-size)/1.4 var(--font-family);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--op-label-color);
+}
+
+.requiredMark {
+  color: var(--op-mode-active-bg);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: var(--op-input-height);
+  padding: 0 36px 0 34px;
+  border: 1px solid var(--op-input-border);
+  border-radius: var(--op-input-radius);
+  font: 400 var(--op-input-font-size)/1.4 var(--font-family);
+  color: var(--color-foreground);
+  background: var(--op-input-bg);
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+}
+
+.input:focus {
+  outline: none;
+  border: 1.5px solid var(--op-input-border-focus);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.inputDisabled {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.inputError {
+  border: 1.5px solid var(--op-input-border-error);
+  background: #fffafa;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.leadingIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.searchIcon {
+  color: #94a3b8;
+}
+
+.checkIcon {
+  color: #15803d;
+  transition: opacity 150ms ease-out;
+}
+
+.clearButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  display: inline-flex;
+  padding: 4px;
+}
+
+.dropdown {
+  position: fixed;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--op-dropdown-radius);
+  box-shadow: var(--op-dropdown-shadow);
+  z-index: 9999;
+  transform-origin: top center;
+}
+
+.dropdownOpen {
+  animation: opDropdownOpen 160ms ease-out forwards;
+}
+
+.dropdownClosing {
+  animation: opDropdownClose 100ms ease-in forwards;
+}
+
+.option {
+  height: 36px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font: 400 13px/1.4 var(--font-family);
+  color: #0f172a;
+  transition: background-color 100ms;
+}
+
+.option:hover {
+  background: var(--op-dropdown-item-hover);
+}
+
+.optionActive {
+  background: var(--op-dropdown-item-active);
+  color: var(--op-mode-active-bg);
+}
+
+.emptyOption {
+  padding: 12px;
+  color: #94a3b8;
+  font: 400 12px/1.4 var(--font-family);
+  text-align: center;
+}
+
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 400 11px/1.4 var(--font-family);
+  color: var(--op-input-border-error);
+  margin: 0;
+  animation: opErrorFadeIn 130ms ease-out;
+}

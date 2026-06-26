@@ -1,0 +1,200 @@
+.tableWrap {
+  background: #FFFFFF;
+  border: 1px solid #E6E8EA;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table thead th {
+  background: #334155;
+  color: #FFFFFF;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 10px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.table tbody td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #E6E8EA;
+  color: #0F172A;
+  vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #F2F3F4;
+}
+
+.row {
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.row:hover {
+  background: #EFF6FF !important;
+}
+
+.rowSelected {
+  background: #EFF6FF !important;
+  box-shadow: inset 3px 0 0 #059669;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.numeric {
+  font-family: 'Fira Code', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.numericBold {
+  composes: numeric;
+  font-weight: 700;
+}
+
+.truncate {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.skeletonRow td {
+  padding: 10px;
+}
+
+.skeletonCell {
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #E6E8EA 25%, #F2F3F4 50%, #E6E8EA 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.emptyState,
+.errorState {
+  padding: 40px 24px;
+  text-align: center;
+  color: #64748B;
+}
+
+.emptyState p,
+.errorState p {
+  margin: 0 0 12px;
+}
+
+.retryButton {
+  padding: 8px 16px;
+  border: 1px solid #E6E8EA;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #334155;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  background: #F2F3F4;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badgeTransit {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.badgeCompleted {
+  background: #D1FAE5;
+  color: #059669;
+}
+
+.badgeCancelled {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-top: 1px solid #E6E8EA;
+  background: #F8FAFC;
+  font-size: 12px;
+  color: #64748B;
+  flex-wrap: wrap;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageButton {
+  padding: 4px 10px;
+  border: 1px solid #E6E8EA;
+  border-radius: 4px;
+  background: #FFFFFF;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageButton:not(:disabled):hover {
+  background: #F2F3F4;
+}
+
+.totalsBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 8px 12px;
+  background: #334155;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-family: 'Fira Code', monospace;
+  font-variant-numeric: tabular-nums;
+  flex-wrap: wrap;
+}
+
+.totalsLabel {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 600;
+  margin-right: auto;
+}

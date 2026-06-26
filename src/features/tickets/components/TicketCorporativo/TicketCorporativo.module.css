@@ -1,0 +1,261 @@
+.ticketCorporativo {
+  width: 140mm;
+  min-height: 216mm;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 11px;
+  color: #111827;
+  background: #fff;
+  margin: 0 auto;
+  padding: 8mm;
+  box-sizing: border-box;
+}
+
+.headerBand {
+  background: #1a3a5c;
+  color: #ffffff;
+  padding: 6px 10px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.logoFallback {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.headerText {
+  flex: 1;
+}
+
+.empresaNombre {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.docTitle {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a3a5c;
+  margin: 10px 0 4px;
+}
+
+.docMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.preliminarBanner {
+  text-align: center;
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: bold;
+  padding: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #f59e0b;
+}
+
+.reimpresionBanner {
+  text-align: center;
+  background: #e8edf2;
+  color: #1a3a5c;
+  font-weight: bold;
+  padding: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #1a3a5c;
+}
+
+.section {
+  margin-bottom: 10px;
+}
+
+.sectionHeading {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 4px;
+  background: #e8edf2;
+  padding: 4px 6px;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+.dataTable th,
+.dataTable td {
+  border: 1px solid #e8edf2;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+.dataTable th {
+  background: #e8edf2;
+  font-weight: 600;
+  text-align: left;
+}
+
+.fieldLabel {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.fieldValue {
+  font-size: 11px;
+  color: #111827;
+}
+
+.pesoNeto {
+  background: #f0f7ff;
+  color: #1a3a5c;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 12px;
+  text-align: right;
+  border: 1px solid #1a3a5c;
+  margin-top: 8px;
+}
+
+.pesoNetoPending {
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 12px;
+  text-align: right;
+  border: 1px solid #e8edf2;
+  margin-top: 8px;
+}
+
+.refGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  font-size: 10px;
+}
+
+.signatureArea {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.signatureLine {
+  border-top: 1px solid #000;
+  margin-top: 24px;
+  font-size: 9px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.qrSection {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.qrPlaceholder {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #1a3a5c;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  margin-bottom: 4px;
+}
+
+@media print {
+  .ticketCorporativo {
+    width: 140mm;
+    min-height: 216mm;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 11px;
+    color: #111827;
+    background: #fff;
+    margin: 0;
+    padding: 8mm;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+
+  .headerBand {
+    background: #1a3a5c;
+    color: #ffffff;
+    padding: 6px 10px;
+  }
+
+  .pesoNeto {
+    background: #f0f7ff;
+    color: #1a3a5c;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    text-align: right;
+    border: 1px solid #1a3a5c;
+  }
+
+  .sectionHeading {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+  }
+
+  .dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    border: 1px solid #e8edf2;
+    padding: 4px 6px;
+  }
+
+  .dataTable th {
+    background: #e8edf2;
+    font-weight: 600;
+  }
+
+  .signatureArea {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .signatureLine {
+    border-top: 1px solid #000;
+    margin-top: 24px;
+    font-size: 9px;
+    text-align: center;
+  }
+}

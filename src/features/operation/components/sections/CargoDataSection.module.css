@@ -1,0 +1,58 @@
+.sectionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 16px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fieldLabel {
+  font: var(--op-label-weight) var(--op-label-font-size)/1.4 var(--font-family);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--op-label-color);
+}
+
+.textInput {
+  height: var(--op-input-height);
+  padding: 0 12px;
+  border: 1px solid var(--op-input-border);
+  border-radius: var(--op-input-radius);
+  font: 400 var(--op-input-font-size)/1.4 var(--font-family);
+  color: var(--color-foreground);
+  background: var(--op-input-bg);
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+}
+
+.textInput:focus {
+  outline: none;
+  border: 1.5px solid var(--op-input-border-focus);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.textInput:disabled {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.textInputError {
+  border: 1.5px solid var(--op-input-border-error);
+  background: #fffafa;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 400 11px/1.4 var(--font-family);
+  color: var(--op-input-border-error);
+  margin: 0;
+  animation: opErrorFadeIn 130ms ease-out;
+}

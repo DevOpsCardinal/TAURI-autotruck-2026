@@ -1,0 +1,102 @@
+:root {
+  /* ── Topbar ──────────────────────────────────────────────── */
+  --op-topbar-height: 56px;
+  --op-topbar-bg: #ffffff;
+  --op-topbar-border: #e2e8f0;
+  --op-topbar-shadow: 0 1px 0 #e2e8f0;
+  --op-z-topbar: 40;
+
+  /* ── Control bar ─────────────────────────────────────────── */
+  --op-controlbar-height: 52px;
+  --op-controlbar-bg: #ffffff;
+  --op-controlbar-border: #e2e8f0;
+  --op-z-controlbar: 10;
+
+  /* ── Mode selector ───────────────────────────────────────── */
+  --op-mode-active-bg: #c62828;
+  --op-mode-active-text: #ffffff;
+  --op-mode-idle-bg: #f1f5f9;
+  --op-mode-idle-text: #475569;
+  --op-mode-hover-bg: #fee2e2;
+  --op-mode-hover-text: #c62828;
+  --op-mode-radius: 8px;
+  --op-mode-height: 36px;
+
+  /* ── Secciones del formulario ────────────────────────────── */
+  --op-section-bg: #ffffff;
+  --op-section-radius: 10px;
+  --op-section-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --op-section-padding: 8px;
+  --op-section-gap: 6px;
+  --op-section-label-color: #c62828;
+  --op-section-accent-bar: 3px solid #c62828;
+  --op-z-section: 1;
+
+  /* ── Inputs ──────────────────────────────────────────────── */
+  --op-input-height: 30px;
+  --op-input-bg: #ffffff;
+  --op-input-bg-readonly: #f8fafc;
+  --op-input-border: #cbd5e1;
+  --op-input-border-focus: #c62828;
+  --op-input-border-error: #dc2626;
+  --op-input-radius: 7px;
+  --op-input-font-size: 12px;
+  --op-label-font-size: 10px;
+  --op-label-color: #64748b;
+  --op-label-weight: 600;
+
+  /* ── Panel de báscula ────────────────────────────────────── */
+  --op-scale-panel-width: 260px;
+  --op-scale-panel-bg: #0f172a;
+  --op-scale-panel-radius: 12px;
+  --op-scale-panel-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --op-scale-live-bg: #1e293b;
+  --op-scale-live-border: #334155;
+  --op-scale-card-bg: #1e293b;
+  --op-scale-card-border: #334155;
+  --op-scale-number-color: #f1f5f9;
+  --op-scale-number-size: 32px;
+  --op-scale-label-color: #94a3b8;
+  --op-scale-unit-size: 13px;
+  --op-scale-neto-ok: #34d399;
+  --op-scale-neto-warn: #fbbf24;
+  --op-scale-connected: #34d399;
+  --op-scale-disconnected: #f87171;
+  --op-z-scale-panel: 1;
+
+  /* ── Search de tránsito ──────────────────────────────────── */
+  --op-search-bg: #ffffff;
+  --op-search-radius: 10px;
+  --op-search-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* ── Chips ───────────────────────────────────────────────── */
+  --op-chip-ingreso-bg: #dcfce7;
+  --op-chip-ingreso-text: #15803d;
+  --op-chip-despacho-bg: #fef3c7;
+  --op-chip-despacho-text: #92400e;
+
+  /* ── Combobox dropdown ───────────────────────────────────── */
+  --op-dropdown-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --op-dropdown-radius: 8px;
+  --op-dropdown-item-hover: #fef2f2;
+  --op-dropdown-item-active: #fee2e2;
+  --op-z-dropdown: 50;
+
+  /* ── Toast ───────────────────────────────────────────────── */
+  --op-toast-bg: #0f172a;
+  --op-toast-text: #f1f5f9;
+  --op-toast-success-icon: #34d399;
+  --op-toast-error-icon: #f87171;
+  --op-toast-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --op-z-toast: 100;
+
+  /* ── Botón primario ──────────────────────────────────────── */
+  --op-btn-height: 32px;
+  --op-btn-min-width: 160px;
+  --op-btn-radius: 8px;
+
+  /* ── Page ────────────────────────────────────────────────── */
+  --op-page-bg: #f8fafc;
+  --op-form-panel-bg: #ffffff;
+  --op-form-panel-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}

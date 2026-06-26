@@ -1,0 +1,16 @@
+.numeric {
+  font-family: 'Fira Code', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.numericBold {
+  composes: numeric;
+  font-weight: 700;
+}
+
+.truncate {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

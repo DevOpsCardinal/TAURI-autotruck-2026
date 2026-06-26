@@ -1,0 +1,104 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.configRow {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.configInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.configKey {
+  font: var(--text-label);
+  color: var(--color-foreground);
+}
+
+.configDesc {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.autoBadge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--color-muted, #f1f5f9);
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.configInputWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.configInput {
+  flex: 1;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font: var(--text-body);
+}
+
+.configInput:disabled {
+  background: var(--color-background);
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.iconSuccess {
+  color: var(--color-success, #059669);
+  flex-shrink: 0;
+}
+
+.iconError {
+  color: var(--color-error, #dc2626);
+  flex-shrink: 0;
+}
+
+.autoHint {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.stateMessage {
+  padding: 24px;
+  color: var(--color-muted);
+  font: var(--text-body);
+}
+
+.retryButton {
+  margin-left: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .configRow {
+    grid-template-columns: 1fr;
+  }
+}

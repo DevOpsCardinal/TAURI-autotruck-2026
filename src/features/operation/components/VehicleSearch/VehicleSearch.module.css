@@ -1,0 +1,153 @@
+.container {
+  padding: var(--op-section-padding);
+  background: var(--op-search-bg);
+  border-radius: var(--op-search-radius);
+  box-shadow: var(--op-search-shadow);
+  margin-bottom: var(--op-section-gap);
+  z-index: var(--op-z-section);
+  position: relative;
+}
+
+.searchRow {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.searchInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px 0 38px;
+  border: 1px solid var(--op-input-border);
+  border-radius: var(--op-input-radius);
+  font: 400 var(--op-input-font-size)/1.4 var(--font-family);
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.searchInput:focus {
+  outline: none;
+  border: 1.5px solid var(--op-input-border-focus);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.12);
+}
+
+.listButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  height: 40px;
+  border: 1px solid var(--op-input-border);
+  border-radius: var(--op-input-radius);
+  background: #fff;
+  font: 500 13px/1 var(--font-family);
+  color: #334155;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 120ms, border-color 120ms;
+}
+
+.listButton:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.dropdown {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid var(--op-input-border);
+  border-radius: var(--op-input-radius);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.dropdownItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1.5fr 0.7fr 0.8fr;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font: 400 13px/1.4 var(--font-family);
+  color: #1e293b;
+  transition: background-color 120ms;
+}
+
+.dropdownItem:hover {
+  background: #f8fafc;
+}
+
+.dropdownItemSelected {
+  background: #fef2f2;
+}
+
+.colPlaca {
+  font-weight: 600;
+}
+
+.colConductor {
+  color: #475569;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.colTime {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.colPeso {
+  color: #475569;
+  font-size: 12px;
+  text-align: right;
+}
+
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font: 600 10px/1 var(--font-family);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.chipIngreso {
+  background: var(--op-chip-ingreso-bg);
+  color: var(--op-chip-ingreso-text);
+}
+
+.chipDespacho {
+  background: var(--op-chip-despacho-bg);
+  color: var(--op-chip-despacho-text);
+}
+
+.status {
+  margin: var(--space-12) 0 0;
+  color: var(--color-muted);
+  font: 400 13px/1.4 var(--font-family);
+}

@@ -1,0 +1,66 @@
+.container {
+  position: fixed;
+  top: calc(var(--op-topbar-height) + 12px);
+  right: 16px;
+  z-index: var(--op-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 280px;
+  max-width: 360px;
+  padding: 12px 16px;
+  background: var(--op-toast-bg);
+  color: var(--op-toast-text);
+  border-radius: 8px;
+  box-shadow: var(--op-toast-shadow);
+  font: 400 13px/1.5 var(--font-family);
+  animation: opToastEnter 220ms ease-out forwards;
+}
+
+.toastExit {
+  animation: opToastExit 150ms ease-in forwards;
+}
+
+.toastSuccess .icon {
+  color: var(--op-toast-success-icon);
+}
+
+.toastError .icon {
+  color: var(--op-toast-error-icon);
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.retryButton {
+  align-self: flex-start;
+  border: 1px solid rgba(241, 245, 249, 0.35);
+  background: transparent;
+  color: var(--op-toast-text);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font: 600 12px/1 var(--font-family);
+  cursor: pointer;
+  transition: background-color 150ms ease-out;
+}
+
+.retryButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,62 @@
+.tableContainer {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  flex: 1;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--color-muted, #f1f5f9);
+}
+
+td,
+th {
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 13px;
+}
+
+th {
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+tbody tr:hover {
+  background: var(--color-muted, #f1f5f9);
+}
+
+.actionsCell {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.actionButton {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--color-brand-primary, #334155);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionButton:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.actionButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.deleteButton {
+  color: var(--color-error, #dc2626);
+  margin-left: 4px;
+}

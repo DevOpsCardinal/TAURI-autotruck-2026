@@ -1,0 +1,304 @@
+.section {
+  width: 100%;
+}
+
+.title {
+  font: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.separator {
+  height: 1px;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-16);
+  background: var(--color-border);
+}
+
+/* ── Body ── */
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+/* ── Logo row ── */
+
+.logoRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
+  padding: var(--space-16) var(--space-20);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.logoPreviewWrap {
+  flex-shrink: 0;
+}
+
+.logoImg {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.logoPlaceholder {
+  width: 72px;
+  height: 72px;
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  background: var(--color-background);
+}
+
+.logoActions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.logoLabel {
+  font: var(--text-body);
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.logoHint {
+  font: var(--text-body);
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+.logoBtnRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.logoPickBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-12);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font: var(--text-label);
+  color: var(--color-foreground);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.logoPickBtn:hover:not(:disabled) {
+  background: var(--color-background);
+}
+
+.logoPickBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.logoRemoveBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: #b91c1c;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.logoRemoveBtn:hover:not(:disabled) {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.logoRemoveBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Fields ── */
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.fieldLabel {
+  font: var(--text-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.fieldInput {
+  height: 40px;
+  padding: 0 var(--space-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font: var(--text-body);
+  color: var(--color-foreground);
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.fieldInput:focus {
+  border-color: var(--color-brand-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.fieldInput:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fieldInput::placeholder {
+  color: var(--color-muted);
+}
+
+/* ── Footer ── */
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--space-4);
+}
+
+.saveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-10) var(--space-24);
+  background: var(--color-brand-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font: var(--text-label);
+  cursor: pointer;
+  transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: var(--color-brand-dark);
+}
+
+.saveBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.saveBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Skeleton ── */
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.skeletonField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.skeletonLabel,
+.skeletonInput {
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLabel {
+  height: 13px;
+  width: 30%;
+}
+
+.skeletonInput {
+  height: 40px;
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ── Spinner ── */
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Error box ── */
+
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-foreground);
+  font: var(--text-body);
+}
+
+.retryButton {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-foreground);
+  border-radius: var(--radius-md);
+  padding: var(--space-8) var(--space-12);
+  font: var(--text-label);
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  background: var(--color-background);
+}

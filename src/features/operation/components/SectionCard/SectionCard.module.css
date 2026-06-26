@@ -1,0 +1,60 @@
+.card {
+  background: var(--op-section-bg);
+  border-radius: var(--op-section-radius);
+  box-shadow: var(--op-section-shadow);
+  border-left: var(--op-section-accent-bar);
+  padding: var(--op-section-padding);
+  z-index: var(--op-z-section);
+  animation: opSectionEnter 200ms ease-out both;
+}
+
+.conditional {
+  animation: opSectionConditionalEnter 180ms ease-out both;
+}
+
+.conditionalExit {
+  animation: opSectionConditionalExit 120ms ease-in forwards;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin: 0 0 var(--op-section-gap);
+}
+
+.title {
+  margin: 0;
+  font: 700 11px/1.4 var(--font-family);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--op-section-label-color);
+  white-space: nowrap;
+}
+
+.divider {
+  flex: 1;
+  height: 1px;
+  background: var(--op-topbar-border);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.growable {
+  flex: 1;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentFill {
+  flex: 1;
+  min-height: 0;
+}

@@ -1,0 +1,198 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.panel {
+  width: min(720px, 100%);
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 32px rgba(15, 23, 42, 0.15);
+  animation: slideIn 200ms ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--op-topbar-border);
+}
+
+.title {
+  margin: 0;
+  font: 700 16px/1.3 var(--font-family);
+  color: #0f172a;
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: #f1f5f9;
+}
+
+.toolbar {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid var(--op-topbar-border);
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.searchInput {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px 0 34px;
+  border: 1px solid var(--op-input-border);
+  border-radius: var(--op-input-radius);
+  font: 400 13px/1.4 var(--font-family);
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filterButton {
+  padding: 6px 14px;
+  border: 1px solid var(--op-input-border);
+  border-radius: 999px;
+  background: #fff;
+  font: 500 12px/1 var(--font-family);
+  color: #475569;
+  cursor: pointer;
+}
+
+.filterActive {
+  background: #fef2f2;
+  border-color: #c62828;
+  color: #c62828;
+}
+
+.tableWrapper {
+  flex: 1;
+  overflow: auto;
+  padding: 0 24px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 400 13px/1.4 var(--font-family);
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  text-align: left;
+  padding: 12px 10px;
+  font: 600 10px/1 var(--font-family);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  border-bottom: 1px solid var(--op-topbar-border);
+}
+
+.table td {
+  padding: 0 10px;
+  height: 44px;
+  border-bottom: 1px solid var(--op-topbar-border);
+}
+
+.row {
+  cursor: pointer;
+  transition: background-color 120ms;
+}
+
+.row:hover {
+  background: #f8fafc;
+}
+
+.rowSelected {
+  background: #fef2f2;
+}
+
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font: 600 10px/1 var(--font-family);
+  text-transform: uppercase;
+}
+
+.chipIngreso {
+  background: var(--op-chip-ingreso-bg);
+  color: var(--op-chip-ingreso-text);
+}
+
+.chipDespacho {
+  background: var(--op-chip-despacho-bg);
+  color: var(--op-chip-despacho-text);
+}
+
+.timeWarning {
+  color: #ea580c;
+  font-weight: 600;
+}
+
+.timeDanger {
+  color: #dc2626;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status {
+  padding: 24px 0;
+  color: var(--color-muted);
+  font: 400 13px/1.4 var(--font-family);
+  text-align: center;
+}
+
+.footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--op-topbar-border);
+  font: 500 13px/1 var(--font-family);
+  color: #64748b;
+  text-align: center;
+}

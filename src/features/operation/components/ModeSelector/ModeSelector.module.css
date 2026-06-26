@@ -1,0 +1,98 @@
+.controlBar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  min-height: var(--op-controlbar-height);
+  padding: 12px 24px;
+  background: var(--op-controlbar-bg);
+  border-bottom: 1px solid var(--op-controlbar-border);
+  z-index: var(--op-z-controlbar);
+}
+
+.modeGroup {
+  display: inline-flex;
+}
+
+.modeButton {
+  height: var(--op-mode-height);
+  padding: 0 20px;
+  border: 1px solid var(--op-controlbar-border);
+  background: var(--op-mode-idle-bg);
+  color: var(--op-mode-idle-text);
+  font: 600 14px/1 var(--font-family);
+  cursor: pointer;
+  transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
+}
+
+.modeButton + .modeButton {
+  border-left: none;
+}
+
+.modeButtonFirst {
+  border-radius: var(--op-mode-radius) 0 0 var(--op-mode-radius);
+}
+
+.modeButtonLast {
+  border-radius: 0 var(--op-mode-radius) var(--op-mode-radius) 0;
+}
+
+.modeButton:hover:not(.modeButtonActive) {
+  background: var(--op-mode-hover-bg);
+  color: var(--op-mode-hover-text);
+}
+
+.modeButtonActive {
+  background: var(--op-mode-active-bg);
+  color: var(--op-mode-active-text);
+  border-color: var(--op-mode-active-bg);
+}
+
+.scaleGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.scaleHeading {
+  margin-right: 8px;
+  font: 600 10px/1 var(--font-family);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--op-scale-label-color);
+}
+
+.connectionDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.connected {
+  background: var(--op-scale-connected);
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.25);
+}
+
+.disconnected {
+  background: var(--op-scale-disconnected);
+}
+
+.scaleButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--op-input-border);
+  background: transparent;
+  color: var(--op-mode-idle-text);
+  font: 600 14px/1 var(--font-family);
+  cursor: pointer;
+  transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
+}
+
+.scaleButtonActive {
+  background: var(--op-mode-active-bg);
+  color: var(--op-mode-active-text);
+  border-color: var(--op-mode-active-bg);
+}

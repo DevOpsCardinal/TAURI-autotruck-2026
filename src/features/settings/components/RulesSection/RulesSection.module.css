@@ -1,0 +1,103 @@
+.section {
+  width: 100%;
+}
+
+.title {
+  font: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.separator {
+  height: 1px;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-16);
+  background: var(--color-border);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.skeletonCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-20);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.skeletonContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.skeletonLine,
+.skeletonLineShort,
+.skeletonToggle {
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLine {
+  height: 16px;
+  width: 55%;
+}
+
+.skeletonLineShort {
+  height: 14px;
+  width: 80%;
+}
+
+.skeletonToggle {
+  width: 48px;
+  height: 28px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-foreground);
+  font: var(--text-body);
+}
+
+.retryButton {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-foreground);
+  border-radius: var(--radius-md);
+  padding: var(--space-8) var(--space-12);
+  font: var(--text-label);
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  background: var(--color-background);
+}

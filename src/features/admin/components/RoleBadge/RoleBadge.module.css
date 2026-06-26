@@ -1,0 +1,25 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.operario {
+  background: #1c3829;
+  color: #a7f3d0;
+}
+
+.administrador {
+  background: #1e3a5f;
+  color: #bfdbfe;
+}
+
+.super_administrador {
+  background: #4a1942;
+  color: #e9d5ff;
+}

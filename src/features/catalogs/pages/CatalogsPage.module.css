@@ -1,0 +1,48 @@
+.catalogsPage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-background);
+}
+
+.pageHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  z-index: 10;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-foreground);
+  font: var(--text-body);
+  cursor: pointer;
+}
+
+.pageTitle {
+  margin: 0;
+  font: var(--text-subheading);
+  color: var(--color-foreground);
+}
+
+.pageBody {
+  display: flex;
+  flex: 1;
+  margin-top: 52px;
+  height: calc(100vh - 52px);
+  min-height: 0;
+}

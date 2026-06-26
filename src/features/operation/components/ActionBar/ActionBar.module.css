@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 4px;
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-width: var(--op-btn-min-width);
+  height: var(--op-btn-height);
+  padding: 0 32px;
+  border: none;
+  border-radius: var(--op-btn-radius);
+  background: var(--op-mode-active-bg);
+  color: #ffffff;
+  font: 600 14px/1 var(--font-family);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 200ms ease-out, box-shadow 200ms ease-out, transform 150ms ease-out,
+    opacity 200ms ease-out;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--color-brand-dark);
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.3);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: scale(0.97);
+  transition: transform 80ms ease-in;
+}
+
+.submitButton:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: opSpinner 0.8s linear infinite;
+}

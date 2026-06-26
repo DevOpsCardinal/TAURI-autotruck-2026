@@ -1,0 +1,93 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #FFFFFF;
+  border: 1px solid #E6E8EA;
+  border-radius: 8px;
+  transition: opacity 200ms ease;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+}
+
+.field label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.field input,
+.field select {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #E6E8EA;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'Fira Sans', sans-serif;
+  color: #0F172A;
+  background: #FFFFFF;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.15);
+}
+
+.fieldError {
+  font-size: 11px;
+  color: #DC2626;
+  margin-top: 2px;
+}
+
+.clearButton {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #E6E8EA;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #334155;
+  font-size: 13px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 150ms ease;
+}
+
+.clearButton:hover {
+  background: #F2F3F4;
+}
+
+.infoBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #64748B;
+  border-bottom: 1px solid #E6E8EA;
+  flex-wrap: wrap;
+}
+
+.infoBar strong {
+  font-family: 'Fira Code', monospace;
+  color: #0F172A;
+  font-variant-numeric: tabular-nums;
+}

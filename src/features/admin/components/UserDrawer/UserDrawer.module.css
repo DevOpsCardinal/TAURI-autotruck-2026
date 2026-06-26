@@ -1,0 +1,241 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 400px;
+  max-width: 100%;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms ease-out;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.drawerClosed {
+  transform: translateX(100%);
+  transition: transform 150ms ease-in;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.drawerHeader h3 {
+  margin: 0;
+  font: var(--text-subheading);
+  color: var(--color-foreground);
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--color-muted);
+}
+
+.drawerBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.fieldGroup + .fieldGroup {
+  margin-top: 16px;
+}
+
+.fieldLabel {
+  display: block;
+  font: var(--text-label);
+  color: var(--color-foreground);
+  margin-bottom: 6px;
+}
+
+.required {
+  color: var(--color-error);
+  margin-left: 2px;
+}
+
+.lockedBadge {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #f2f3f4;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.textInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font: var(--text-body);
+  color: var(--color-foreground);
+  background: #fff;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.textInputError {
+  border-color: var(--color-error);
+}
+
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--color-error);
+}
+
+.errorBanner {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  font-size: 13px;
+}
+
+.drawerFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.cancelBtn {
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-foreground);
+  font: var(--text-body);
+  cursor: pointer;
+}
+
+.saveBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-brand-primary, #c62828);
+  color: #fff;
+  font: var(--text-label);
+  cursor: pointer;
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmDialog {
+  width: 360px;
+  max-width: calc(100% - 32px);
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.confirmDialog h4 {
+  margin: 0 0 8px;
+  font: var(--text-subheading);
+}
+
+.confirmDialog p {
+  margin: 0 0 20px;
+  color: var(--color-muted);
+  font: var(--text-body);
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.passwordWrap {
+  position: relative;
+}
+
+.passwordWrap .textInput {
+  padding-right: 40px;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.readOnlyValue {
+  margin: 0;
+  padding: 8px 0;
+  font: var(--text-body);
+  color: var(--color-muted);
+}
+
+.selectInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font: var(--text-body);
+  background: #fff;
+}
+
+.selectInput:disabled {
+  background: #f8fafc;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}

@@ -1,0 +1,317 @@
+.section {
+  width: 100%;
+  margin-top: var(--space-32);
+}
+
+.title {
+  font: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.separator {
+  height: 1px;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-16);
+  background: var(--color-border);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.card {
+  padding: var(--space-20);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  font: var(--text-body);
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.fieldRowInline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+.fieldLabel {
+  font: var(--text-label);
+  color: var(--color-muted);
+}
+
+.fieldInput,
+.fieldSelect {
+  width: 100%;
+  padding: var(--space-10) var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font: var(--text-body);
+}
+
+.fieldInput:focus-visible,
+.fieldSelect:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.fieldError {
+  font: var(--text-small);
+  color: var(--color-error);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.testBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-foreground);
+  font: var(--text-label);
+  cursor: pointer;
+}
+
+.testBtn:hover:not(:disabled) {
+  background: var(--color-background);
+}
+
+.testBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.saveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-16);
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-primary);
+  color: #fff;
+  font: var(--text-label);
+  cursor: pointer;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: var(--color-brand-dark);
+}
+
+.saveBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font: var(--text-small);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statusBadge--connected .statusDot {
+  background: #059669;
+}
+
+.statusBadge--connecting .statusDot {
+  background: #d97706;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.statusBadge--disconnected .statusDot {
+  background: #94a3b8;
+}
+
+.statusBadge--error .statusDot {
+  background: #dc2626;
+}
+
+.statusBadge--connected .statusText {
+  color: #059669;
+}
+
+.statusBadge--connecting .statusText {
+  color: #d97706;
+}
+
+.statusBadge--disconnected .statusText {
+  color: #94a3b8;
+}
+
+.statusBadge--error .statusText {
+  color: #dc2626;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.testResult {
+  margin-top: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-md);
+  font: var(--text-small);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.testResultSuccess {
+  color: var(--color-success, #059669);
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.testResultError {
+  color: var(--color-error, #dc2626);
+  background: var(--color-error-bg, #fef2f2);
+  border: 1px solid #fecaca;
+}
+
+.testResultClose {
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 0 var(--space-4);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.skeletonWide,
+.skeletonMedium {
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonWide {
+  height: 40px;
+  width: 100%;
+}
+
+.skeletonMedium {
+  height: 40px;
+  width: 100%;
+}
+
+.skeletonRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-foreground);
+  font: var(--text-body);
+}
+
+.retryButton {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-foreground);
+  border-radius: var(--radius-md);
+  padding: var(--space-8) var(--space-12);
+  font: var(--text-label);
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  background: var(--color-background);
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

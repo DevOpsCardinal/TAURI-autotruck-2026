@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  .layout > :first-child {
+    display: none;
+  }
+
+  .layout > :last-child {
+    flex: 1 1 100%;
+  }
+}

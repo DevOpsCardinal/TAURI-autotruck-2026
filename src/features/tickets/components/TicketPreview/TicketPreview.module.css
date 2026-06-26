@@ -1,0 +1,129 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.panel {
+  width: 620px;
+  max-width: 100%;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e8edf2;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.formatSelector {
+  display: flex;
+  gap: 6px;
+}
+
+.formatButton {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #1a3a5c;
+  background: transparent;
+  color: #1a3a5c;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.formatButtonActive {
+  background: #1a3a5c;
+  color: #fff;
+}
+
+.previewArea {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.previewScale {
+  transform: scale(0.75);
+  transform-origin: top center;
+}
+
+.previewScaleWide {
+  transform: scale(0.60);
+  transform-origin: top center;
+}
+
+.loadingState,
+.errorState {
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.errorState {
+  color: #b91c1c;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #e8edf2;
+}
+
+.closeButton {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.printButton {
+  padding: 8px 16px;
+  border: none;
+  background: #1a3a5c;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.printButton:disabled,
+.closeButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media print {
+  /* No usar display:none — elimina el subárbol y anula visibility:visible del print-target.
+     La visibilidad la maneja la regla global en App.css (body * { visibility: hidden }).
+     Solo reseteamos los transforms para que el tiquete imprima a tamaño real. */
+  .previewScale,
+  .previewScaleWide {
+    transform: none !important;
+    transform-origin: unset;
+  }
+}

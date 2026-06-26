@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-20);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.nombre {
+  font: var(--text-subheading);
+  color: var(--color-foreground);
+}
+
+.descripcion {
+  margin-top: var(--space-4);
+  font: var(--text-body);
+  color: var(--color-muted);
+}
+
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 28px;
+  border: none;
+  border-radius: 14px;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+
+.switch:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.switchOn {
+  background: var(--color-brand-primary);
+}
+
+.switchOff {
+  background: var(--color-disabled);
+}
+
+.switchDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 200ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbOn {
+  transform: translateX(20px);
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(198, 40, 40, 0.2);
+  border-top-color: var(--color-brand-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
