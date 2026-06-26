@@ -27,35 +27,44 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Settings2,
 };
 
+const ADMIN_ONLY_KEYS = new Set<CatalogKey>(['configuraciones']);
+
 interface CatalogSidebarProps {
   activeCatalog: CatalogKey;
   onSelect: (key: CatalogKey) => void;
+  isAdmin: boolean;
 }
 
-export function CatalogSidebar({ activeCatalog, onSelect }: CatalogSidebarProps) {
+export function CatalogSidebar({ activeCatalog, onSelect, isAdmin }: CatalogSidebarProps) {
   return (
     <nav className={styles.sidebar} aria-label="Catálogos">
-      {SIDEBAR_GROUPS.map((group) => (
-        <div key={group.label} className={styles.group}>
-          <div className={styles.groupLabel}>{group.label}</div>
-          {group.items.map((item) => {
-            const Icon = ICON_MAP[item.icon] ?? User;
-            const isActive = activeCatalog === item.key;
-            return (
-              <button
-                key={item.key}
-                type="button"
-                className={`${styles.item} ${isActive ? styles.itemActive : ''}`}
-                onClick={() => onSelect(item.key)}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <Icon size={16} aria-hidden />
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      ))}
+      {SIDEBAR_GROUPS.map((group) => {
+        const visibleItems = group.items.filter(
+          (item) => !ADMIN_ONLY_KEYS.has(item.key) || isAdmin,
+        );
+        if (visibleItems.length === 0) return null;
+        return (
+          <div key={group.label} className={styles.group}>
+            <div className={styles.groupLabel}>{group.label}</div>
+            {visibleItems.map((item) => {
+              const Icon = ICON_MAP[item.icon] ?? User;
+              const isActive = activeCatalog === item.key;
+              return (
+                <button
+                  key={item.key}
+                  type="button"
+                  className={`${styles.item} ${isActive ? styles.itemActive : ''}`}
+                  onClick={() => onSelect(item.key)}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  <Icon size={16} aria-hidden />
+                  <span>{item.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        );
+      })}
     </nav>
   );
 }

@@ -41,6 +41,7 @@ export function CatalogsPage() {
         <CatalogSidebar
           activeCatalog={activeCatalog}
           onSelect={setActiveCatalog}
+          isAdmin={isAdmin}
         />
         <CatalogMain
           catalogKey={activeCatalog}

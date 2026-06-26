@@ -13,7 +13,7 @@ export function SettingsPage() {
   const { auth } = useAuth();
   const { rules, isLoading, error, toggleRule, reload } = useBusinessRules();
 
-  const hasAccess = auth?.rol === 'administrador' || auth?.rol === 'super_administrador';
+  const hasAccess = auth?.rol === 'super_administrador';
 
   useEffect(() => {
     if (auth && !hasAccess) {

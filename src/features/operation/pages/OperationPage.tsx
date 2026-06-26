@@ -137,7 +137,7 @@ function OperationPageContent() {
           >
             <Database size={20} aria-hidden />
           </button>
-          {(auth?.rol === 'administrador' || auth?.rol === 'super_administrador') && (
+          {auth?.rol === 'super_administrador' && (
             <button
               type="button"
               className={styles.settingsButton}
