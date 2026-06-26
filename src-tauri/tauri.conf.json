@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Cardinal Weighing Colombia",
+  "productName": "Autotruck",
   "version": "0.1.0",
   "identifier": "com.cardinalweighing.bioplanta",
   "build": {
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Cardinal Weighing Colombia",
+        "title": "Autotruck",
         "width": 1280,
         "height": 800,
         "minWidth": 1024,
