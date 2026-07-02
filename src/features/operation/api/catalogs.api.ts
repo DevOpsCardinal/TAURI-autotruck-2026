@@ -62,3 +62,19 @@ export async function getTrama(auth: ApiAuth): Promise<string> {
   const data = await parseApiResponse<{ Valor: string }[]>(response);
   return data[0]?.Valor ?? 'Cardinal SMA';
 }
+
+export interface IndicadorTramas {
+  trama1: string;
+  trama2: string;
+}
+
+export async function getIndicadorTramas(auth: ApiAuth): Promise<IndicadorTramas> {
+  const response = await apiFetch('/api/configuraciones', auth.token);
+  const body = await parseApiResponse<{ data: { parametro: string; valor: string }[] }>(response);
+  const items = body.data;
+  const find = (key: string) => items.find((i) => i.parametro === key)?.valor;
+  return {
+    trama1: find('indicador1_trama') ?? 'Cardinal SMA',
+    trama2: find('indicador2_trama') ?? 'Cardinal SMA',
+  };
+}

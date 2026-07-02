@@ -270,10 +270,6 @@ export function useIndicadorConfig(): UseIndicadorConfigReturn {
         }
       }
 
-      if (isDirty1 || isDirty2) {
-        updates.push(updateConfiguracion(accessToken, 'Trama', 'Numero'));
-      }
-
       await Promise.all(updates);
 
       setSavedForm1(form1);
@@ -288,7 +284,7 @@ export function useIndicadorConfig(): UseIndicadorConfigReturn {
     } finally {
       setIsSaving(false);
     }
-  }, [accessToken, form1, form2, isDirty1, isDirty2, isSaving, savedForm1, savedForm2, showToast]);
+  }, [accessToken, form1, form2, isSaving, savedForm1, savedForm2, showToast]);
 
   return {
     form1,
