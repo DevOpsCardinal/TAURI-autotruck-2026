@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import type { TicketData } from '../../types/ticket.types';
 import {
   formatWeightKg,
@@ -15,6 +16,13 @@ interface TicketMediaHojaProps {
 }
 
 export function TicketMediaHoja({ data, printTarget = false }: TicketMediaHojaProps) {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.id = 'media-hoja-page-style';
+    style.textContent = '@page { size: 210mm 148.5mm; margin: 5mm 10mm; }';
+    document.head.appendChild(style);
+    return () => { style.remove(); };
+  }, []);
   const preliminar = isPreliminary(data.tiquete.estado);
   const { entrada, salida } = getEntradaSalidaPesos(data);
   const logoUrl = resolveLogoUrl(data.empresa.logo_path);
@@ -176,6 +184,8 @@ export function TicketMediaHoja({ data, printTarget = false }: TicketMediaHojaPr
           </tr>
         </tbody>
       </table>
+
+      <div className={styles.spacer} />
 
       {/* FIRMAS */}
       <div className={styles.signatures}>

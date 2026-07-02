@@ -1,13 +1,17 @@
 /* ─── TICKET MEDIA HOJA ─── */
 
 .ticket {
-  width: 200mm;
+  width: 190mm;
+  height: 136mm;
   font-family: Arial, 'Helvetica Neue', sans-serif;
   font-size: 8px;
   color: #000;
   background: #fff;
   border: 1px solid #000;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* ─── BANNERS DE ESTADO ─── */
@@ -20,6 +24,7 @@
   font-weight: bold;
   letter-spacing: 0.8px;
   padding: 1px 0;
+  flex-shrink: 0;
 }
 
 .stateBannerReprint {
@@ -30,6 +35,7 @@
   font-weight: bold;
   letter-spacing: 0.8px;
   padding: 1px 0;
+  flex-shrink: 0;
 }
 
 /* ─── ENCABEZADO ─── */
@@ -40,6 +46,7 @@
   gap: 6px;
   padding: 3px 6px;
   border-bottom: 1px solid #000;
+  flex-shrink: 0;
 }
 
 .logoArea {
@@ -110,6 +117,7 @@
 .dataTable {
   width: 100%;
   border-collapse: collapse;
+  flex-shrink: 0;
 }
 
 .dataTable td {
@@ -171,12 +179,20 @@
   border-bottom-width: 2px;
 }
 
+/* ─── ESPACIADOR ─── */
+
+.spacer {
+  flex: 1;
+  max-height: 10mm;
+}
+
 /* ─── FIRMAS ─── */
 
 .signatures {
   display: flex;
   border-top: 1px solid #000;
   height: 16mm;
+  flex-shrink: 0;
 }
 
 .sigBlock {
@@ -209,7 +225,8 @@
 
 @media print {
   .ticket {
-    width: 200mm;
+    width: 190mm;
+    height: 136mm;
     border: 1px solid #000;
     page-break-after: always;
   }
