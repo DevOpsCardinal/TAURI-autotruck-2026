@@ -23,6 +23,12 @@ export function TicketMediaHoja({ data, printTarget = false }: TicketMediaHojaPr
   const contraparteLabel = data.mercancia.contraparte_label.toUpperCase();
   const origenDestinoLabel = data.mercancia.origen_destino_label.toUpperCase();
 
+  const refs: Array<{ label: string; value: string }> = [];
+  if (data.referencias.no_sello) refs.push({ label: 'No. SELLO', value: data.referencias.no_sello });
+  if (data.referencias.no_shipment) refs.push({ label: 'SHIPMENT', value: data.referencias.no_shipment });
+  if (data.referencias.no_contenedor) refs.push({ label: 'CONTENEDOR', value: data.referencias.no_contenedor });
+  if (data.referencias.no_r) refs.push({ label: 'No. R', value: data.referencias.no_r });
+
   return (
     <div className={`${styles.ticket}${printTarget ? ' print-target' : ''}`}>
 
@@ -42,136 +48,134 @@ export function TicketMediaHoja({ data, printTarget = false }: TicketMediaHojaPr
           )}
         </div>
         <div className={styles.headerCenter}>
+          {data.empresa.nombre && <div className={styles.headerEmpresa}>{data.empresa.nombre}</div>}
+          {data.empresa.nit && <div className={styles.headerNit}>NIT: {data.empresa.nit}</div>}
+          {(data.empresa.direccion || data.empresa.ciudad) && (
+            <div className={styles.headerAddress}>
+              {data.empresa.direccion}{data.empresa.ciudad ? ` — ${data.empresa.ciudad}` : ''}
+            </div>
+          )}
+        </div>
+        <div className={styles.headerRight}>
           <div className={styles.headerTitle}>BÁSCULA DE PESAJE</div>
-          {data.empresa.nombre ? <div className={styles.headerEmpresa}>{data.empresa.nombre}</div> : null}
-          {data.empresa.nit ? <div className={styles.headerNit}>NIT: {data.empresa.nit}</div> : null}
+          <div className={styles.ticketNumber}>N. {data.tiquete.numero || '—'}</div>
         </div>
       </div>
 
-      {/* TABLA DE MOVIMIENTO */}
-      <table className={styles.moveTable}>
-        <thead>
-          <tr>
-            <th rowSpan={2} className={styles.colRegistro}>REGISTRO No.</th>
-            <th colSpan={3} className={styles.colMovHead}>MOVIMIENTO</th>
-            <th rowSpan={2} className={styles.colTiquete}>TIQUETE No.</th>
-            <th rowSpan={2} className={styles.colNeto}>PESO NETO</th>
-          </tr>
-          <tr>
-            <th className={styles.colFecha}>FECHA</th>
-            <th className={styles.colHora}>HORA</th>
-            <th className={styles.colPeso}>PESO</th>
-          </tr>
-        </thead>
+      {/* TABLA DE DATOS */}
+      <table className={styles.dataTable}>
         <tbody>
+          {/* Vehículo + Fechas/Pesos de entrada y salida */}
           <tr>
-            <td rowSpan={2} className={styles.tdRegistro}>{data.tiquete.codigo_visual}</td>
-            <td>{data.pesaje.fecha_primer_pesaje || '—'}</td>
-            <td>{data.pesaje.hora_primer_pesaje || '—'}</td>
-            <td className={styles.tdPesoCell}>
-              {formatWeightValue(entrada)}
-              <span className={styles.movLabel}> ENT.</span>
+            <td className={styles.label}>PLACA</td>
+            <td className={styles.val}>{data.vehiculo.placa || '—'}</td>
+            <td className={styles.label}>FECHA ENTRADA</td>
+            <td className={styles.val}>
+              {data.pesaje.fecha_primer_pesaje || '—'}
+              {data.pesaje.hora_primer_pesaje ? `  ${data.pesaje.hora_primer_pesaje}` : ''}
             </td>
-            <td rowSpan={2} className={styles.tdTiquete}>{data.tiquete.numero || '—'}</td>
-            <td rowSpan={2} className={preliminar ? styles.tdNetoPending : styles.tdNeto}>
+          </tr>
+          <tr>
+            <td className={styles.label}>CONDUCTOR ID</td>
+            <td className={styles.val}>{data.conductor.cedula || '—'}</td>
+            <td className={styles.label}>PESO ENTRADA</td>
+            <td className={styles.valBold}>{formatWeightValue(entrada)} kg</td>
+          </tr>
+          <tr>
+            <td className={styles.label}>TRANSPORTADORA</td>
+            <td className={styles.val}>{data.vehiculo.transportadora || '—'}</td>
+            <td className={styles.label}>FECHA SALIDA</td>
+            <td className={styles.val}>
+              {preliminar ? '—' : (data.pesaje.fecha_segundo_pesaje || '—')}
+              {!preliminar && data.pesaje.hora_segundo_pesaje ? `  ${data.pesaje.hora_segundo_pesaje}` : ''}
+            </td>
+          </tr>
+          <tr className={styles.sectionEnd}>
+            <td className={styles.label}>CONDUCTOR</td>
+            <td className={styles.val}>{data.conductor.nombre || '—'}</td>
+            <td className={styles.label}>PESO SALIDA</td>
+            <td className={styles.valBold}>{preliminar ? '—' : `${formatWeightValue(salida)} kg`}</td>
+          </tr>
+
+          {/* Producto y movimiento */}
+          <tr>
+            <td className={styles.label}>{materialLabel}</td>
+            <td className={styles.val}>{data.mercancia.descripcion || '—'}</td>
+            <td className={styles.label}>MOVIMIENTO</td>
+            <td className={styles.val}>{data.tiquete.codigo_visual || '—'}</td>
+          </tr>
+          <tr>
+            <td className={styles.label}>{contraparteLabel}</td>
+            <td className={styles.val}>{data.mercancia.contraparte || '—'}</td>
+            <td className={styles.labelNeto}>PESO NETO</td>
+            <td className={styles.valNeto}>
               {preliminar ? 'PENDIENTE' : formatWeightKg(data.pesaje.neto_kg)}
             </td>
           </tr>
           <tr>
-            <td>{preliminar ? '—' : (data.pesaje.fecha_segundo_pesaje || '—')}</td>
-            <td>{preliminar ? '—' : (data.pesaje.hora_segundo_pesaje || '—')}</td>
-            <td className={styles.tdPesoCell}>
-              {preliminar ? '—' : formatWeightValue(salida)}
-              {!preliminar ? <span className={styles.movLabel}> SAL.</span> : null}
-            </td>
+            <td className={styles.label}>{origenDestinoLabel}</td>
+            <td className={styles.val}>{data.mercancia.origen_destino || '—'}</td>
+            <td className={styles.label}></td>
+            <td></td>
+          </tr>
+          <tr className={styles.sectionEnd}>
+            <td className={styles.label}>PLANTA</td>
+            <td className={styles.val}>{data.mercancia.planta || '—'}</td>
+            <td className={styles.label}></td>
+            <td></td>
+          </tr>
+
+          {/* Referencias opcionales */}
+          {refs.length > 0 && (
+            <tr className={refs.length <= 2 ? styles.sectionEnd : undefined}>
+              <td className={styles.label}>{refs[0].label}</td>
+              <td className={styles.val}>{refs[0].value}</td>
+              {refs[1] ? (
+                <>
+                  <td className={styles.label}>{refs[1].label}</td>
+                  <td className={styles.val}>{refs[1].value}</td>
+                </>
+              ) : (
+                <>
+                  <td className={styles.label}></td>
+                  <td></td>
+                </>
+              )}
+            </tr>
+          )}
+          {refs.length > 2 && (
+            <tr className={styles.sectionEnd}>
+              <td className={styles.label}>{refs[2].label}</td>
+              <td className={styles.val}>{refs[2].value}</td>
+              {refs[3] ? (
+                <>
+                  <td className={styles.label}>{refs[3].label}</td>
+                  <td className={styles.val}>{refs[3].value}</td>
+                </>
+              ) : (
+                <>
+                  <td className={styles.label}></td>
+                  <td></td>
+                </>
+              )}
+            </tr>
+          )}
+
+          {/* Observaciones */}
+          <tr>
+            <td className={styles.label}>OBSERVACIONES</td>
+            <td colSpan={3} className={styles.val}>{data.observaciones || ''}</td>
+          </tr>
+
+          {/* Báscula y operario */}
+          <tr>
+            <td className={styles.label}>BÁSCULA</td>
+            <td className={styles.val}>{data.bascula || '—'}</td>
+            <td className={styles.label}>OPERARIO</td>
+            <td className={styles.val}>{data.operario.nombre || '—'}</td>
           </tr>
         </tbody>
       </table>
-
-      {/* SECCIÓN DE DATOS */}
-      <div className={styles.infoSection}>
-        <table className={styles.infoLeft}>
-          <tbody>
-            <tr>
-              <td className={styles.infoLabel}>{materialLabel}</td>
-              <td className={styles.infoValue}>{data.mercancia.descripcion || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>{contraparteLabel}</td>
-              <td className={styles.infoValue}>{data.mercancia.contraparte || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>{origenDestinoLabel}</td>
-              <td className={styles.infoValue}>{data.mercancia.origen_destino || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>PLANTA</td>
-              <td className={styles.infoValue}>{data.mercancia.planta || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>PLACA</td>
-              <td className={styles.infoValue}>{data.vehiculo.placa || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>CONDUCTOR ID</td>
-              <td className={styles.infoValue}>{data.conductor.cedula || '—'}</td>
-            </tr>
-            {data.referencias.no_sello ? (
-              <tr>
-                <td className={styles.infoLabel}>No. SELLO</td>
-                <td className={styles.infoValue}>{data.referencias.no_sello}</td>
-              </tr>
-            ) : null}
-            {data.referencias.no_shipment ? (
-              <tr>
-                <td className={styles.infoLabel}>SHIPMENT</td>
-                <td className={styles.infoValue}>{data.referencias.no_shipment}</td>
-              </tr>
-            ) : null}
-            {data.referencias.no_contenedor ? (
-              <tr>
-                <td className={styles.infoLabel}>CONTENEDOR</td>
-                <td className={styles.infoValue}>{data.referencias.no_contenedor}</td>
-              </tr>
-            ) : null}
-            {data.referencias.no_r ? (
-              <tr>
-                <td className={styles.infoLabel}>No. R</td>
-                <td className={styles.infoValue}>{data.referencias.no_r}</td>
-              </tr>
-            ) : null}
-            <tr>
-              <td className={styles.infoLabel}>BÁSCULA</td>
-              <td className={styles.infoValue}>{data.bascula || '—'}</td>
-            </tr>
-            {data.observaciones ? (
-              <tr>
-                <td className={styles.infoLabel}>OBSERVACIONES</td>
-                <td className={styles.infoValue}>{data.observaciones}</td>
-              </tr>
-            ) : null}
-          </tbody>
-        </table>
-
-        <table className={styles.infoRight}>
-          <tbody>
-            <tr>
-              <td className={styles.infoLabel}>TRANSPORT.</td>
-              <td className={styles.infoValue}>{data.vehiculo.transportadora || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>CONDUCTOR</td>
-              <td className={styles.infoValue}>{data.conductor.nombre || '—'}</td>
-            </tr>
-            <tr>
-              <td className={styles.infoLabel}>OPERARIO</td>
-              <td className={styles.infoValue}>{data.operario.nombre || '—'}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div className={styles.spacer} />
 
       {/* FIRMAS */}
       <div className={styles.signatures}>
