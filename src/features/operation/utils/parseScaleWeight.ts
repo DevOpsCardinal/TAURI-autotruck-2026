@@ -56,9 +56,10 @@ export function parseScaleWeight(raw: string, trama: string): number {
     //   - canal   : 2 chars (00-99)
     //   - valor1  : 6 chars (peso, alineado a la derecha)
     //   - valor2  : 6 chars (campo secundario)
-    case 'Bavaria Tibitoc':
-      parsedStr = raw.substring(3, 9).trim();
-      break;
+    case 'Bavaria Tibitoc': {
+      const v = Number(raw.substring(3, 9).trim());
+      return Number.isNaN(v) || v < 0 ? 0 : Math.floor(v / 10);
+    }
 
     default:
       parsedStr = '0';
