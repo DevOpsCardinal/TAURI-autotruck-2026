@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './styles/tokens.css';
+import './styles/print.css';
 import './features/operation/styles/operation.tokens.css';
 import './features/operation/styles/operation.animations.css';
 import App from './App';

@@ -1,0 +1,20 @@
+/* Aísla el tiquete al imprimir: oculta toda la pantalla y muestra solo el
+   elemento marcado con la clase "print-target" (ver TicketCorporativo,
+   TicketTermico y TicketMediaHoja). Sin esta regla, window.print()
+   imprime la pantalla completa (el formulario) en lugar del tiquete. */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  .print-target,
+  .print-target * {
+    visibility: visible !important;
+  }
+
+  .print-target {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

@@ -119,7 +119,7 @@
 
 @media print {
   /* No usar display:none — elimina el subárbol y anula visibility:visible del print-target.
-     La visibilidad la maneja la regla global en App.css (body * { visibility: hidden }).
+     La visibilidad la maneja la regla global en styles/print.css (body * { visibility: hidden }).
      Solo reseteamos los transforms para que el tiquete imprima a tamaño real. */
   .previewScale,
   .previewScaleWide {

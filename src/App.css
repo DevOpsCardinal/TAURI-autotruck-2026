@@ -114,20 +114,3 @@ button {
     background-color: #0f0f0f69;
   }
 }
-
-@media print {
-  body * {
-    visibility: hidden !important;
-  }
-
-  .print-target,
-  .print-target * {
-    visibility: visible !important;
-  }
-
-  .print-target {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}

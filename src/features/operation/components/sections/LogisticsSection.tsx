@@ -1,6 +1,7 @@
 import { SectionCard } from '../SectionCard/SectionCard';
 import {
   getClientes,
+  getDestinos,
   getOrigenes,
   getPlantas,
   getProveedores,
@@ -21,6 +22,7 @@ export function LogisticsSection({ sectionStyle, exiting }: LogisticsSectionProp
   const loadProveedores = useCatalogLoader(() => getProveedores(auth));
   const loadClientes = useCatalogLoader(() => getClientes(auth));
   const loadOrigenes = useCatalogLoader(() => getOrigenes(auth));
+  const loadDestinos = useCatalogLoader(() => getDestinos(auth));
   const isIngreso = effectiveType === 'ingreso';
 
   return (
@@ -68,13 +70,13 @@ export function LogisticsSection({ sectionStyle, exiting }: LogisticsSectionProp
 
         <Combobox
           name="destino"
-          label="Origen"
+          label={isIngreso ? 'Origen' : 'Destino'}
           required={!isPhase2}
           disabled={isPhase2}
           value={formik.values.destino}
           error={formik.errors.destino}
           touched={formik.touched.destino}
-          loadOptions={loadOrigenes}
+          loadOptions={isIngreso ? loadOrigenes : loadDestinos}
           getOptionLabel={(item) => item.Nombre}
           filterOption={(item, q) => item.Nombre.toLowerCase().includes(q)}
           onSelect={(item) => {

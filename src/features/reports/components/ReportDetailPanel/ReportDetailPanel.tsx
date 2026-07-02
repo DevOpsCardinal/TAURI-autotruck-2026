@@ -173,7 +173,7 @@ function TransitDetail({ record }: { record: TransitHistoryRecord }) {
       <DetailSection title={record.caso === 'Ingreso' ? 'Mercancía' : 'Producto'}>
         <DetailRow label={record.caso === 'Ingreso' ? 'Materia Prima / Producto' : 'Producto'} value={record.materia_prima_producto} />
         <DetailRow label="Contraparte" value={record.cliente_proveedor} />
-        <DetailRow label="Origen / Destino" value={record.origen_destino} />
+        <DetailRow label={record.caso === 'Ingreso' ? 'Origen' : 'Destino'} value={record.origen_destino} />
         <DetailRow label="Planta" value={record.planta} />
       </DetailSection>
       <DetailSection title="Tiempos">

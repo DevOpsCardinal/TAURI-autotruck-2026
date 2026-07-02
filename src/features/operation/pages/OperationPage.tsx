@@ -61,11 +61,6 @@ function OperationPageContent() {
     transit.clearRecord();
   };
 
-  function handleTicketPrint() {
-    ticket.print();
-    ticket.close();
-  }
-
   const formState = useOperationForm({
     mode,
     transitRecord: transit.selectedRecord,
@@ -245,7 +240,7 @@ function OperationPageContent() {
         title="Tiquete de pesaje"
         onClose={ticket.close}
         onFormatChange={ticket.setFormat}
-        onPrint={handleTicketPrint}
+        onPrint={ticket.print}
       />
     </div>
   );
